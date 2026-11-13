@@ -62,3 +62,26 @@ In this task, I created a simple Python program to track stock investments. The 
 ### What I Learned
 
 While doing this task, I learned how to use Python dictionaries, take user input, calculate profit and loss, and save results in a CSV file.
+
+
+## Task 4: Rule-Based Interactive Chatbot
+
+This project is a simple rule-based chatbot developed using Python.
+
+### Features:
+- Responds to greeting messages.
+- Answers frequently asked questions.
+- Provides information about internship project submission.
+- Provides information about certificate delivery.
+- Handles multiple questions in one message.
+- Displays a fallback response for unknown questions.
+- Supports exit commands like bye, exit, and quit.
+
+### Technologies Used:
+- Python
+- JSON
+- Regular Expressions
+
+### Files:
+- `chatbot.py` – Main chatbot program.
+- `faq.json` – Contains chatbot greetings and frequently asked questions.
