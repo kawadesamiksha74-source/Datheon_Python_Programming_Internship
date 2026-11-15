@@ -1,87 +1,119 @@
-# Datheon Python Internship
+# Datheon Python Programming Internship
 
-Hi! I am Samiksha Kawade, a T.Y. BSc Computer Science student. This repository contains the Python projects I am working on during my Datheon Python Internship.
+Hi! I am Samiksha Kawade, a T.Y. BSc Computer Science student. This repository contains the Python projects I developed as part of my Datheon Python Programming Internship.
 
 ## Task 1: Hangman Word Guessing Game
 
-I created a simple Hangman game using Python. In this game, the computer selects a random word, and the player has to guess the word one letter at a time.
+A console-based word guessing game developed using Python. The computer selects a random word, and the player has to guess it one letter at a time.
 
 ### Features
+- Selects a random word from a predefined word list.
+- Allows the player to guess one letter at a time.
+- Provides 6 chances for incorrect guesses.
+- Displays Hangman drawings for wrong guesses.
+- Tracks previously guessed letters.
+- Does not reduce chances for repeated guesses.
+- Uses coloured messages for correct and incorrect guesses.
+- Displays attractive win and lose messages.
+- Allows the player to play again.
 
-* Selects a random word.
-* Allows the player to guess letters.
-* Gives 6 chances for incorrect guesses.
-* Shows Hangman drawing for wrong guesses.
-* Keeps track of guessed letters.
-* Does not reduce chances for repeating a letter.
-* Displays a message when the player wins or loses.
-* Allows the player to play again.
+### Technologies Used
+- Python 3
+- Random Module
+- ANSI Escape Codes
 
-## Technologies Used
-
-* Python 3
-* Random module
-
-## How to Run
-
-1. Install Python 3 on your computer.
-2. Download this repository.
-3. Open the project folder in VS Code.
-4. Open the terminal.
-5. Run this command:
-
+### How to Run
 ```bash
 python hangman.py
 ```
 
-If you are using Windows, you can also run:
+### What I Learned
+I learned about loops, conditional statements, strings, sets, functions, random selection, and user input handling.
 
-```bash
-py hangman.py
-```
-
-## What I Learned
-
-While making this project, I learned how to use loops, if-else statements, strings, sets, and the random module in Python. I also learned how to take user input and build a simple console game.
-
+---
 
 ## Task 2: Stock Portfolio Performance Tracker
 
-In this task, I created a simple Python program to track stock investments. The program takes stock names, buying prices, quantities, and current prices from the user. It calculates the total investment, current value, and profit or loss for each stock. It also saves the results in a CSV file.
+A Python-based application that helps users track their stock investments by calculating investment value and profit or loss.
+
+### Features
+- Accepts stock ticker names from the user.
+- Takes buying price, quantity, and current market price as input.
+- Calculates total investment.
+- Calculates current market value.
+- Calculates profit or loss.
+- Displays profit or loss percentage.
+- Shows an attractive coloured portfolio dashboard.
+- Exports portfolio results to a CSV file.
+
+**Note:** Current market prices are entered manually by the user. The program does not fetch live stock market prices.
 
 ### Technologies Used
-
-* Python
-* CSV File Handling
+- Python 3
+- CSV Module
+- Datetime Module
+- ANSI Escape Codes
 
 ### Files
+- `portfolio.py` – Main stock portfolio tracker.
+- `portfolio_summary.csv` – Sample portfolio summary output.
 
-* `portfolio.py` – Python program for tracking stock investments.
-* `portfolio_summary.csv` – CSV file containing the portfolio summary.
+### How to Run
+```bash
+python portfolio.py
+```
 
 ### What I Learned
+I learned about Python functions, dictionaries, calculations, input validation, CSV file handling, and formatting output.
 
-While doing this task, I learned how to use Python dictionaries, take user input, calculate profit and loss, and save results in a CSV file.
-
+---
 
 ## Task 4: Rule-Based Interactive Chatbot
 
-This project is a simple rule-based chatbot developed using Python.
+A rule-based chatbot developed using Python that responds to greetings and answers frequently asked questions using predefined responses stored in a JSON file.
 
-### Features:
+### Features
 - Responds to greeting messages.
 - Answers frequently asked questions.
 - Provides information about internship project submission.
 - Provides information about certificate delivery.
 - Handles multiple questions in one message.
-- Displays a fallback response for unknown questions.
-- Supports exit commands like bye, exit, and quit.
+- Displays fallback responses for unknown questions.
+- Supports exit commands such as bye, exit, and quit.
+- Includes a colourful and user-friendly console interface.
 
-### Technologies Used:
-- Python
+### Technologies Used
+- Python 3
 - JSON
 - Regular Expressions
+- ANSI Escape Codes
 
-### Files:
+### Files
 - `chatbot.py` – Main chatbot program.
-- `faq.json` – Contains chatbot greetings and frequently asked questions.
+- `sample_faq.json` – Contains chatbot greetings and frequently asked questions.
+
+### How to Run
+```bash
+python chatbot.py
+```
+
+### What I Learned
+I learned how to work with JSON files, regular expressions, keyword matching, conditional statements, and rule-based chatbot logic.
+
+---
+
+## Skills Gained
+
+- Python Programming
+- Problem Solving
+- Functions and Loops
+- Conditional Statements
+- File Handling
+- CSV and JSON
+- Regular Expressions
+- User Input Validation
+
+## Author
+
+Samiksha Kawade  
+T.Y. BSc Computer Science Student
