@@ -1,7 +1,13 @@
 import random
 
-# Hangman Word Guessing Game
-# Run: python hangman.py
+# Colour settings
+RESET = "\033[0m"
+RED = "\033[91m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+CYAN = "\033[96m"
+MAGENTA = "\033[95m"
+BOLD = "\033[1m"
 
 WORDS = [
     "python", "computer", "internship", "programming", "developer",
@@ -10,7 +16,6 @@ WORDS = [
 ]
 
 HANGMAN_STAGES = [
-    # 0 wrong guesses
     r"""
      +---+
      |   |
@@ -19,7 +24,6 @@ HANGMAN_STAGES = [
          |
          |
     =========""",
-    # 1 wrong guess
     r"""
      +---+
      |   |
@@ -28,7 +32,6 @@ HANGMAN_STAGES = [
          |
          |
     =========""",
-    # 2 wrong guesses
     r"""
      +---+
      |   |
@@ -37,7 +40,6 @@ HANGMAN_STAGES = [
          |
          |
     =========""",
-    # 3 wrong guesses
     r"""
      +---+
      |   |
@@ -46,7 +48,6 @@ HANGMAN_STAGES = [
          |
          |
     =========""",
-    # 4 wrong guesses
     r"""
      +---+
      |   |
@@ -55,7 +56,6 @@ HANGMAN_STAGES = [
          |
          |
     =========""",
-    # 5 wrong guesses
     r"""
      +---+
      |   |
@@ -64,7 +64,6 @@ HANGMAN_STAGES = [
     /    |
          |
     =========""",
-    # 6 wrong guesses: game over
     r"""
      +---+
      |   |
@@ -77,67 +76,90 @@ HANGMAN_STAGES = [
 
 
 def display_word(secret_word, correct_guesses):
-    """Return the word with unguessed letters hidden."""
-    return " ".join(letter.upper() if letter in correct_guesses else "_" for letter in secret_word)
+    return " ".join(
+        letter.upper() if letter in correct_guesses else "_"
+        for letter in secret_word
+    )
 
 
 def play_hangman():
+
     secret_word = random.choice(WORDS)
     correct_guesses = set()
     guessed_letters = set()
     wrong_guesses = 0
     max_attempts = 6
 
-    print("=" * 38)
-    print("       HANGMAN WORD GUESSING GAME")
-    print("=" * 38)
-    print(f"Guess the hidden word one letter at a time. You have {max_attempts} wrong guesses.")
-    print("Enter one English letter per turn.\n")
+    print("\n" + MAGENTA + "=" * 45 + RESET)
+    print(BOLD + CYAN + "          HANGMAN WORD GUESSING GAME" + RESET)
+    print(MAGENTA + "=" * 45 + RESET)
+
+    print(YELLOW + "\nGuess the hidden word, one letter at a time!")
+    print("You have 6 chances to save yourself!" + RESET)
 
     while wrong_guesses < max_attempts:
-        print(HANGMAN_STAGES[wrong_guesses])
-        print("\nWord:", display_word(secret_word, correct_guesses))
-        print("Guessed letters:", " ".join(sorted(guessed_letters)) if guessed_letters else "None")
-        print(f"Wrong guesses left: {max_attempts - wrong_guesses}")
 
-        # Check for victory before asking for another letter.
+        print(CYAN + HANGMAN_STAGES[wrong_guesses] + RESET)
+
+        print("\n" + BOLD + "WORD: " + RESET +
+              YELLOW + display_word(secret_word, correct_guesses) + RESET)
+
+        print("Guessed letters:",
+              ", ".join(sorted(guessed_letters)) if guessed_letters else "None")
+
+        print(GREEN + f"Correct guesses: {len(correct_guesses)}" + RESET)
+        print(RED + f"Wrong guesses left: {max_attempts - wrong_guesses}" + RESET)
+
         if all(letter in correct_guesses for letter in secret_word):
-            print("\nCongratulations! You guessed the word!")
-            print("Secret word:", secret_word.upper())
-            print("YOU WIN!")
+
+            print(GREEN + BOLD + "\nCONGRATULATIONS! YOU WIN!" + RESET)
+            print(YELLOW + "Secret word: " + secret_word.upper() + RESET)
             return
 
-        guess = input("\nEnter a letter: ").strip().lower()
+        guess = input(CYAN + "\nEnter a letter: " + RESET).strip().lower()
 
         if len(guess) != 1 or not guess.isalpha() or not guess.isascii():
-            print("Invalid input. Please enter one English letter (A-Z).\n")
+            print(RED + "Invalid input! Enter one English letter (A-Z)." + RESET)
             continue
 
         if guess in guessed_letters:
-            print(f"You already guessed '{guess.upper()}'. No attempt was lost.\n")
+            print(YELLOW + "You already guessed this letter!" + RESET)
             continue
 
         guessed_letters.add(guess)
 
         if guess in secret_word:
-            correct_guesses.add(guess)
-            print(f"Correct! '{guess.upper()}' is in the word.\n")
-        else:
-            wrong_guesses += 1
-            print(f"Sorry, '{guess.upper()}' is not in the word.\n")
 
-    print(HANGMAN_STAGES[max_attempts])
-    print("\nYOU LOSE!")
-    print("The secret word was:", secret_word.upper())
+            correct_guesses.add(guess)
+            print(GREEN + f"Correct! '{guess.upper()}' is in the word." + RESET)
+
+        else:
+
+            wrong_guesses += 1
+            print(RED + f"Wrong! '{guess.upper()}' is not in the word." + RESET)
+
+    print(CYAN + HANGMAN_STAGES[max_attempts] + RESET)
+
+    print(RED + BOLD + "\nGAME OVER! YOU LOSE!" + RESET)
+    print(YELLOW + "The secret word was: " + secret_word.upper() + RESET)
 
 
 def main():
+
     while True:
+
         play_hangman()
-        again = input("\nWould you like to play again? (y/n): ").strip().lower()
+
+        again = input(
+            CYAN + "\nWould you like to play again? (y/n): " + RESET
+        ).strip().lower()
+
         if again != "y":
-            print("Thanks for playing Hangman. Goodbye!")
+
+            print(GREEN + BOLD + "\nThanks for playing Hangman!")
+            print("Goodbye! See you again!" + RESET)
             break
+
         print()
 
 
